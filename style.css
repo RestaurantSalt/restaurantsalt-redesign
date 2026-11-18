@@ -484,6 +484,8 @@ section { padding: 96px 0; scroll-margin-top: calc(var(--header-h) + 16px); }
 .kv span { white-space: nowrap; }
 .kv span:first-child { color: var(--text-soft); }
 .kv span:last-child { font-weight: 600; color: var(--ink); }
+.kv.kv-wrap { flex-wrap: nowrap; align-items: baseline; }
+.kv.kv-wrap span:first-child { white-space: normal; }
 
 .social-row { display: flex; gap: 16px; margin-top: 6px; }
 .social-row a { font-weight: 600; color: var(--green); font-size: 14.5px; }
