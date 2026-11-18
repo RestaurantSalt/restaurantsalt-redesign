@@ -50,13 +50,15 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Sesongbannere: data-season="MM-DD/MM-DD" (fra/til, inklusive)
+  // Sesongbannere: data-season="MM-DD/MM-DD" (hvert år) eller "YYYY-MM-DD/YYYY-MM-DD" (én gang), fra/til inklusive
   var now = new Date();
-  var today = (now.getMonth() + 1) * 100 + now.getDate();
+  var md = (now.getMonth() + 1) * 100 + now.getDate();
+  var ymd = now.getFullYear() * 10000 + md;
   document.querySelectorAll('[data-season]').forEach(function (el) {
     var range = el.getAttribute('data-season').split('/').map(function (d) {
-      var p = d.split('-'); return parseInt(p[0], 10) * 100 + parseInt(p[1], 10);
+      return parseInt(d.replace(/-/g, ''), 10);
     });
+    var today = range[0] > 9999 ? ymd : md;
     if (today >= range[0] && today <= range[1]) el.hidden = false;
   });
 })();
