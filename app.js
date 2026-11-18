@@ -50,14 +50,15 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  var seasonBanner = document.getElementById('seasonBanner');
-  if (seasonBanner) {
-    var now = new Date();
-    var month = now.getMonth() + 1;
-    var day = now.getDate();
-    var inSeason = (month === 4 && day >= 20) || (month === 5 && day <= 20);
-    if (inSeason) seasonBanner.hidden = false;
-  }
+  // Sesongbannere: data-season="MM-DD/MM-DD" (fra/til, inklusive)
+  var now = new Date();
+  var today = (now.getMonth() + 1) * 100 + now.getDate();
+  document.querySelectorAll('[data-season]').forEach(function (el) {
+    var range = el.getAttribute('data-season').split('/').map(function (d) {
+      var p = d.split('-'); return parseInt(p[0], 10) * 100 + parseInt(p[1], 10);
+    });
+    if (today >= range[0] && today <= range[1]) el.hidden = false;
+  });
 })();
 
 (function () {

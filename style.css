@@ -590,7 +590,7 @@ section { padding: 96px 0; scroll-margin-top: calc(var(--header-h) + 16px); }
 
 [hidden] { display: none !important; }
 
-/* Seasonal banner (17. mai) — homepage only, shown via app.js date check */
+/* Seasonal banners (17. mai, jul) — shown via app.js data-season date check */
 .season-banner { background: var(--green); }
 .season-banner-inner {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
