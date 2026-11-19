@@ -560,6 +560,12 @@ section { padding: 96px 0; scroll-margin-top: calc(var(--header-h) + 16px); }
   .hero-actions { gap: 10px; }
   .hero-actions .btn { flex: 1 1 0; padding: 14px 16px; }
   .season-pill { font-size: 13px; padding: 7px 14px; margin-bottom: 16px; }
+  /* Forside-hero på mobil: kun pille, overskrift og knapper — mørkere bilde for lesbarhet */
+  .hero:not(.hero-compact) .eyebrow,
+  .hero:not(.hero-compact) .hero-lede { display: none; }
+  .hero:not(.hero-compact) h1 { margin-bottom: 24px; }
+  .hero-overlay { background: linear-gradient(180deg, rgba(10,14,7,.30) 0%, rgba(10,14,7,.45) 45%, rgba(10,14,7,.82) 100%); }
+  .hero h1, .hero-lede { text-shadow: 0 2px 16px rgba(0,0,0,.35); }
   .scroll-cue { display: none; }
 
   .stat-row { gap: 28px 36px; }
